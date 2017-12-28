@@ -1,0 +1,12 @@
+<!--start.wxml-->
+
+<button class="btn1" bindtap="getDataFromOneNet">
+留下你的痕迹(OneNet)by图图家</button>
+
+<radio-group class="radio-group" bindchange="radioChange">
+  <label style="display: flex"  wx:for="{{items}}">
+    <radio value="{{item.name }}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+</radio-group>
+<text id="text">前世五百次的回眸，才换回你的一次经过
+......</text>
