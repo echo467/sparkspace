@@ -15,7 +15,7 @@ Page({
   getDataFromOneNet: function () {
     //从oneNET请求我们客流量的数据
     const requestTask = wx.request({
-      url: 'https://api.heclouds.com/devices/20420121/datapoints?datastream_id=People,Temperature,Humidity&limit=50 ',
+      url: 'https://api.heclouds.com/devices/#######（设备号）/datapoints?datastream_id=People,Temperature,Humidity&limit=50 ',
       header: {
         'content-type': 'application/json',
         'api-key': '**************'//自己的api
