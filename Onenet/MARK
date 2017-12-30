@@ -1,4 +1,4 @@
-#define INTERVAL_SENSOR   0             //定义传感器采样时间间隔  597000
+#define INTERVAL_SENSOR   0             //定义传感器采样时间间隔  
 
 #define INTERVAL_NET      0             //定义发送时间
 
@@ -8,23 +8,17 @@
 
 #include "ESP8266.h"
 
-#include "I2Cdev.h"                                //调用库  
-
-//温湿度   
+#include "I2Cdev.h"                                //调用库    
 
 #include <SHT2x.h>
 
-//光照
+
+
+#define SSID           "######"                   // cannot be longer than 32 characters!
+
+#define PASSWORD       "########"
 
 #define  sensorPin_1  4
-
-
-
-#define SSID           "vivo X9"                   // cannot be longer than 32 characters!
-
-#define PASSWORD       "85d0ba44604c"
-
-
 
 #define IDLE_TIMEOUT_MS  0      // Amount of time to wait (in milliseconds) with no data 
 
@@ -38,13 +32,13 @@
 
 #define HOST_NAME   "api.heclouds.com"
 
-#define DEVICEID   "20420121"
+#define DEVICEID   "######"
 
-#define PROJECTID "104843"
+#define PROJECTID "######"
 
 #define HOST_PORT   (80)
 
-String apiKey="m035FyGL1t010mKKKU32g2CNMHY=";
+String apiKey="#############";
 
 char buf[10];
 
@@ -72,8 +66,7 @@ String jsonToSend;
 
 //3,传感器值的设置 
 
-float sensor_tem, sensor_hum, sensor_lux;                    //传感器温度、湿度、光照   
-
+float sensor_tem, sensor_hum, sensor_lux;                    //传感器
 char  sensor_tem_c[7], sensor_hum_c[7], sensor_lux_c[100] ;    //换成char数组传输
 
 #include <SoftwareSerial.h>
@@ -102,21 +95,15 @@ void setup(void)     //初始化函数
 
 {       
 
-  //初始化串口波特率  
-
+ //初始化串口波特率  
     Wire.begin();
-
     Serial.begin(115200);   
-
     while(!Serial);
-
     pinMode(sensorPin_1, INPUT);
 
 
-
    //ESP8266初始化
-
-    Serial.print("setup begin\r\n");   
+   Serial.print("setup begin\r\n");   
 
 
 
@@ -261,8 +248,6 @@ jsonToSend="{\"Temperature\":";
     dtostrf(sensor_lux,3,0,buf);
 
     jsonToSend+="\""+String(buf)+"\"";
-
-
 
     jsonToSend+=",\"People\":";
 
