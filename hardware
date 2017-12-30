@@ -1,11 +1,8 @@
 #include <Servo.h> 
-Servo myservo;  //创建一个舵机控制对象
-                          // 使用Servo类最多可以控制8个舵机
-#define humanHotSensor 4//定义人体传感器接D4
-#define LED 2//led灯接D2
-
-
-int pos = 0;    // 该变量用与存储舵机角度位置
+Servo myservo;                               //创建一个舵机控制对象                        
+#define humanHotSensor 4                    //定义人体传感器接D4
+#define LED 2                               //圣诞树
+int pos = 0;                               // 该变量用与存储舵机角度位置
 
 int sb=0;                 //定义一个整形常量sb（名字不重要啦）
 
@@ -25,22 +22,17 @@ void loop(){
   if (sb==1)           
   {
   digitalWrite(LED,HIGH);              //如果值为1（就是有人）那么输出高电压，led灯亮
-  for(pos = 0; pos < 180; pos += 1)  // 从0度到180度运动 
-  {                                                     // 每次步进一度
-    myservo.write(pos);        // 指定舵机转向的角度
-    delay(0);                       // 等待15ms让舵机到达指定位置
-  } 
-  for(pos = 180; pos>=1; pos-=1)   //从180度到0度运动  
-  {                                
-    myservo.write(pos);         // 指定舵机转向的角度 
-    delay(0);                        // 等待15ms让舵机到达指定位置 
-  } 
-  
- 
-  
-   }
-  else                      //如果没人，led不亮，蜂鸣器也不响，屏幕不显示（其实显示了空格啦）
+  for(pos = 0; pos < 180; pos += 1)  // ！！！根据需要调节数值！！！（180和1）
+    myservo.write(pos);      
+    delay(0);                        } 
 
+  for(pos = 180; pos>=1; pos-=1)    
+ {                                
+    myservo.write(pos);        
+    delay(0);                       
+  } 
+   }
+  else                              
     digitalWrite(LED,LOW);
    
       
